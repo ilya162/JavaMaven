@@ -14,6 +14,7 @@ public class Vedushii {
         Singer2 singer2 = new Singer2();
         singer2.setDaemon(true);
         Singer3 singer3 = new Singer3();
+        singer3.setDaemon(true);
         singer1.start();
         singer2.start();
         singer3.start();
