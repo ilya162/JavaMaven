@@ -41,6 +41,7 @@ public class PersonApi {
         res.setUsername(object.getJSONObject("login").getString("username"));
         LocalDateTime dob =
                 ZonedDateTime.parse(object.getJSONObject("dob").getString("date")).toLocalDateTime();
+        res.setGender(object.getString("gender"));
         res.setDob(dob);
 
 
