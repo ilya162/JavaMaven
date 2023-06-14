@@ -10,18 +10,22 @@ public class Person {
     private LocalDateTime dob;
     private String username;
     private String password;
+    private String gender;
 
     public Person() {
     }
 
-    public Person(String name, String lastname, String country, LocalDateTime dob, String username, String password) {
+    public Person(String name, String lastname, String country, LocalDateTime dob, String username, String password, String gender) {
         this.name = name;
         this.lastname = lastname;
         this.country = country;
         this.dob = dob;
         this.username = username;
         this.password = password;
+        this.gender = gender;
     }
+
+
 
     public String getName() {
         return name;
@@ -71,17 +75,25 @@ public class Person {
         this.password = password;
     }
 
+    public String getGender() {
+        return this.gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(name, person.name) && Objects.equals(lastname, person.lastname) && Objects.equals(country, person.country) && Objects.equals(dob, person.dob) && Objects.equals(username, person.username) && Objects.equals(password, person.password);
+        return Objects.equals(name, person.name) && Objects.equals(lastname, person.lastname) && Objects.equals(country, person.country) && Objects.equals(dob, person.dob) && Objects.equals(username, person.username) && Objects.equals(password, person.password) && Objects.equals(gender, person.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, lastname, country, dob, username, password);
+        return Objects.hash(name, lastname, country, dob, username, password, gender);
     }
 
     @Override
@@ -93,7 +105,13 @@ public class Person {
                 ", dob=" + dob +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
                 '}';
     }
+
+    public int getAge(){
+        return LocalDateTime.now().getYear()-dob.getYear();
+    }
+
 
 }
